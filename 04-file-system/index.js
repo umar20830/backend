@@ -74,4 +74,17 @@ fs.rmdir("uk",{recursive:true},function(err){
     // else console.log("Directory deleted is done!");
 })
 
+fs.rm("uk",{recursive:true},function(err){
+    // if(err) console.log(err.message);
+    // else console.log("Directory deleted is done!");
+})
+
+
+
+// Snyc functions is blocking the execution so i dont use it.If it necessary than i used it.Some example of it:
+
+fs.writeFileSync("uk.txt","Hello World");
+
+//Similarly for other functions, Notice that it is not take a callback function.And also it is blocking function unlike {writeFile(Path,Data,Callback)}
+
 
