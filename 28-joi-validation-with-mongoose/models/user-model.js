@@ -17,28 +17,28 @@ const Joi = require("joi");
 // So i use mongodb validation, that is below:
 
 const userSchema = mongoose.Schema({
-    username : {
-        type : String,
-        minLength : 3 ,
-        required : true
+    username: {
+        type: String,
+        minLength: 3,
+        required: true
     },
-    age : {
-        type : Number,
-        min : 18,
-        required : true
+    age: {
+        type: Number,
+        min: 18,
+        required: true
     },
-    email : {
-        type : String,
-        required : true
+    email: {
+        type: String,
+        required: true
     },
-    password : {
-        type : String,
-        minLength : 8,
-        required : true
+    password: {
+        type: String,
+        minLength: 8,
+        required: true
     }
 })
 
-let userModel = mongoose.model("user",userSchema);
+let userModel = mongoose.model("user", userSchema);
 
 // Above Schema create an object in database if all fields are fullfilled otherwise it give us an error!
 
@@ -48,12 +48,12 @@ let userModel = mongoose.model("user",userSchema);
 
 // Now create {validor} function in this function we use {joi}.So, first require it.
 
-function validateSchema(data){
+function validateSchema(data) {
     const schema = Joi.object({
-        username : Joi.string().min(3).required(),
-        age : Joi.number().min(18).required(),
-        email : Joi.string().email().required(),
-        password : Joi.string().required()
+        username: Joi.string().min(3).required(),
+        age: Joi.number().min(18).required(),
+        email: Joi.string().email().required(),
+        password: Joi.string().required()
     })
 
     const resultOfSchema = schema.validate(data);
@@ -63,4 +63,4 @@ function validateSchema(data){
 }
 
 
-module.exports = {userModel,validateSchema}
+module.exports = { userModel, validateSchema }
